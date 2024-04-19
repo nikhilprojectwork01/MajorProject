@@ -78,6 +78,9 @@ async function main() {
 app.listen(port, (req, res) => {
     console.log("Connection Establish with the server");
 });
+app.get("/", (req, res) => {
+    res.redirect("/Listings")
+})
 app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
