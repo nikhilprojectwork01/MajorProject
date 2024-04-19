@@ -1,0 +1,116 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contianer {
+    flex: 1;
+}
+
+.add,
+.del {
+    background-color: rgb(203, 10, 10) !important;
+    color: #ebebeb !important;
+}
+
+.edit {
+    background-color: green !important;
+    color: #ebebeb !important;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: rgb(228, 236, 243);
+}
+
+.fa-compass {
+    color: rgb(203, 10, 10);
+    font-size: 3rem;
+}
+
+.nav-link {
+    color: black !important;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 7rem;
+    justify-content: space-around;
+    background-color: #ebebeb;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    justify-content: space-around;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.row a {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    font-weight: bold;
+    background-color: #ebebeb;
+}
+
+.hello {
+    border: 1px solid rgb(20, 0, 0) !important;
+    margin-left: 1rem;
+    padding: 2rem;
+}
+
+.print {
+    height: 120px;
+}
+
+#map {
+    height: 15rem;
+    width: 30rem;
+    border-radius: 10px;
+}
+
+.serch-btn{
+    background-color: rgb(137, 4, 4) !important;
+    color: white !important;
+    padding: 0rem 1rem 0rem 1rem !important;
+    border-radius: 20px !important;
+}
+.fa-magnifying-glass{
+    display: inline !important;
+    margin: 1px;
+}
+.search{
+    padding: 0.25rem 2rem 0.25rem 2rem !important;
+    border-radius: 20px !important;
+}

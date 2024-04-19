@@ -1,0 +1,177 @@
+<% layout("/layouts/bolierplate.ejs") %>
+<style>
+    .feature{
+        display: flex;
+        text-align: center;
+        margin: 2rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        overflow-x: auto;
+        overflow-y:hidden;
+        max-width: 60rem;
+        max-height: 7rem;
+    }
+    .toggle{
+        width: 17rem;
+        height: 4rem;
+        border-radius: 10px;
+        padding: 1rem;
+        align-items: center;
+        background-color: rgb(230, 234, 234);
+        box-sizing: border-box;
+    }
+    .toggle:hover{
+        border: 1px solid rgb(0, 0, 0);
+    }
+    .feature div{
+        opacity: 0.7;
+        width: 7rem;
+        margin: 1rem;
+    }
+    .feature div:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    .feature::-webkit-scrollbar{
+        width: 0px;
+    }
+    .feature div{
+        margin-right: 1rem;
+    }
+    .pa{
+        font-size: 12px;
+    }
+    .mains{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    input[type="checkbox"]:checked{
+        background-color: rgb(159, 159, 159);
+        border: black;
+    }
+    input[type="checkbox"]{
+        border: 0px ;
+    }
+    .gst{
+        display: none;
+    }
+</style>
+<body>
+    <!-- <h3>All Listings</h3>
+     -->
+     <div class="mains">
+        <div class="feature">
+            <div>
+                <i class="fa-brands fa-gripfire"></i>
+                <p class="pa">Trendings</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <p class="pa">Beach Front</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-person-swimming"></i>
+                <p  class="pa" >Amazing Pools</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-igloo"></i>
+                <p class="pa">Cave</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-city"></i>
+                <p class="pa">Top Cities</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-tent"></i>
+                <p class="pa">Camping</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-snowflake"></i>
+                <p class="pa">Arctic</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-mountain-city"></i>
+                <p class="pa">Mountain city</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-mug-saucer"></i>
+                <p class="pa">Bed Breakfast</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-landmark"></i>
+                <p class="pa">old</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-mountain-sun"></i>
+                <p class="pa">Best View</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-palette"></i>
+                <p class="pa">Creative</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-sailboat"></i>
+                <p class="pa">Boat</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-dog"></i>
+                <p class="pa">Pet friendly</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <p class="pa">New</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-tower-observation"></i>
+                <p class="pa">TOwer House</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-tree"></i>
+                <p class="pa">Forest</p>
+            </div>
+        </div>
+        <div class="toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total before taxes</label>
+              </div>
+        </div>
+     </div>
+    
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 m-3">
+            <%for(datas of data){%>
+                <a href="http://localhost:8080/Listings/<%=datas.id%>">
+                    <div class="card col">
+                        <img src="<%=datas.image.url%>" class="card-img-top" alt="airbnb" style="height: 20rem;">
+                        <div class="card-img-overlay">
+                            <p>Nikhil Group</p>
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">
+                            <b><%=datas.title%></b>
+                            <br/>
+                            &#8377;<%=datas.price.toLocaleString("en-in")%> /Night
+                            <i class="gst">&nbsp; &nbsp; +18% GST</i>
+                        </p>
+                        </div>
+                      </div>
+                </a>
+            <%}%>
+        </div>
+</body>
+<script>
+    let btn = document.getElementById("flexSwitchCheckDefault");
+    btn.addEventListener("click" , ()=>{
+        let taxprice = document.getElementsByClassName("gst");
+            for(bts of taxprice){
+                if(bts.style.display != "inline"){
+                    bts.style.display = "inline";
+                }
+                else{
+                    bts.style.display = "none";
+                }
+            }
+    })
+</script>

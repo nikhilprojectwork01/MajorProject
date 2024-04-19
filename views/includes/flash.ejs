@@ -1,0 +1,18 @@
+<% if(success && success.length){ %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<% } %>
+
+<!-- apart form providing the condition in if the green bar is visible because the reason behid this is that 
+    jo hum ne responce . varaibl me humne create kiya h wo eak empty array bhej raha hai iske wajha se hume empty box print ho raha hai 
+ -->
+
+
+ <% if(error && error.length){ %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<% } %>

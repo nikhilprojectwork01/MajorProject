@@ -1,0 +1,78 @@
+<% layout("/layouts/bolierplate.ejs") %>
+<body>
+    <div class="row offset-2 col-8">
+        <h3>Edit your Listings</h3>
+        <form method="post" action="http://localhost:8080/Listings/<%=data.id%>/add?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+            <input type="text" value="<%=data.title%>" name="newtitle" class="form-control" required>
+             <!-- this is opoup when proper filed ins enterd -->
+             <div class="valid-feedback">
+                Title Looks good!
+               </div>
+               <div class="invalid-feedback">
+                Please choose a title
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Description:</label>
+            <textarea name="newdescription" row="5" cols="20" style="resize: none;" class="form-control" required>
+                <%=data.description%>
+            </textarea>
+                 <!-- this is opoup when proper filed ins enterd -->
+            <div class="valid-feedback">
+                nice description
+               </div>
+               <div class="invalid-feedback">
+               please choose description
+              </div>
+            </div>
+            orginal image:
+            <div class="mb-3 ">
+                <img src="<%=orginal%>" alt="image" class="print"/>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Upload new Image:</label>
+            <input type="file" name="Listings[newimage]" class="form-control"/> <!--the reason for the requred is that if the user can edit by changing ul but he has to place-->
+             <!-- this is opoup when proper filed ins enterd -->
+             <div class="valid-feedback">
+                url Found
+               </div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Price</label>
+            <input type="number" value="<%=data.price%>" name="newprice" class="form-control" required/>
+            <div class="valid-feedback">
+                good price
+               </div>
+               <div class="invalid-feedback">
+                please enter the price 
+              </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="title" class="form-label">Location:</label>
+                <input type="text" value="<%=data.location%>" name="newlocation" class="form-control" required/>
+                <div class="valid-feedback">
+                    location Found
+                    </div>
+                    <div class="invalid-feedback">
+                     please enter Location
+                   </div>
+                </div>
+                <div class="mb-3 col-8">
+                    <label for="title" class="form-label">Country:</label>
+                <input type="text" value="<%=data.country%>" name="newcountry" class="form-control" required/>
+                <div class="valid-feedback">
+                    Country
+                  </div>
+                  <div class="invalid-feedback">
+                   enter Country
+                 </div>
+                </div>
+            </div>
+            <button type="submit" class="btn edit">Edit</button>
+        </form>
+    </div>
+</body>
+</html>

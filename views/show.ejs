@@ -1,0 +1,120 @@
+<% layout("/layouts/bolierplate.ejs") %>
+<script>
+  let cordinates = <%-JSON.stringify(data.geometry.coordinates)%>;
+  let maptoken = "<%=process.env.MAP_TOKEN%>"
+  let locations = "<%=data.location%>";
+</script>
+<style>
+</style>
+    <div class="row re offset-4 col-8 mt-3">
+      <b>
+        <%=data.title%>
+      </b>
+      <br />
+      <div class="card" style="width: 30rem;">
+        <img src="<%=data.image.url%>" class="card-img-top" alt="image">
+        <div class="card-body">
+          <p class="card-text">
+            <br />
+            Owned by:
+            <b><i>
+                <%=data.owner.username%>
+              </i></b>
+            <br />
+            <%=data.description%>
+              <br />
+              &#8377;<%=data.price.toLocaleString("en-in")%>
+                <br />
+                <%=data.location%>
+          </p>
+        </div>
+      </div>
+      <div class="row col-8">
+        <%if(curruser && curruser._id.equals(data.owner._id)){%>
+          <div class="col-2">
+            <a href="http://localhost:8080/Listings/<%=data.id%>/update"><button class="btn edit">Edit</button></a>
+          </div>
+          <div class="col-2">
+            <form method="post" action="http://localhost:8080/Listings/<%=data.id%>/delete?_method=DELETE">
+              <button type="submit" class="btn del">delete</button>
+            </form>
+          </div>
+          <%}%>
+            <br />
+      </div>
+      <%if(curruser){%>
+        <div class="row   col-6 mt-4">
+          <h3>Leave a Review</h3>
+          <form action="http://localhost:8080/Listings/<%=data.id%>/review" method="post" novalidate
+            class="needs-validation">
+            <div>
+              <fieldset class="starability-growRotate">
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                  aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+              <br />
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="resize:none  ; height:10rem" name="comment" required></textarea>
+              <label for="floatingTextarea2">Comments</label>
+              <div class="valid-feedback">
+                Good Review!
+              </div>
+              <div class="invalid-feedback">
+                Provide Comment
+              </div>
+            </div>
+            <button class="btn btn-secondary mt-2 mb-2">Save</button>
+          </form>
+
+        </div>
+        <%}%>
+          <%if(data.reviews.length> 0){%>
+            <b>
+              <p>All Reviews:</p>
+            </b>
+            <div class="row col-8 hero">
+              <%for(suggestion of data.reviews){%>
+                <div class="card col-5 mb-3 hello hell">
+                  <div class="class-body">
+                    <p>
+                      <%=suggestion.author.username%>
+                    </p>
+                    <b>
+                      <p class="card-title">
+                        <%=suggestion.comment%>
+                      </p>
+                    </b>
+                    <p class="card-text">
+                    <p class="starability-result" data-rating="<%=suggestion.rating%>">
+                    </p>
+                    </p>
+                  </div>
+                  <form action="http://localhost:8080/Listings/<%=data.id%>/review/<%=suggestion.id%>?_method=DELETE"
+                    class="mb-3" method="post">
+                    <button class="btn del btn-sm">Delete</button>
+                  </form>
+                </div>
+                <%}%>
+            </div>
+            <%}%>
+    </div>
+    <!------embadding the google map into your projects------>
+    <div class="row re offset-4 col-8 mt-3 mb-5">
+      <h4>Where you'll be</h4>
+      <div id="map">
+      </div>
+    </div>
+    </div>
+    <script src="/js/map.js"

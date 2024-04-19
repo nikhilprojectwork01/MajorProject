@@ -1,0 +1,73 @@
+<% layout("/layouts/bolierplate.ejs") %>
+</head>
+<body>
+    <div class="row">
+        <div class="col-7 offset-2">
+            <h3>Create your new listing</h3>
+        <form method="post" action="http://localhost:8080/Listings/add" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" placeholder="enter title" name="newtitle" class="form-control" required/>
+            <!-- this is opoup when proper filed ins enterd -->
+            <div class="valid-feedback">
+                Title Looks good!
+               </div>
+               <div class="invalid-feedback">
+                Please choose a title
+              </div>
+            </div>
+            <div class="mb-3">
+            <label for="title" class="form-label">Description:</label>
+            <textarea name="newdescription" row="5" cols="20" style="resize: none;" class="form-control" required></textarea>
+            <div class="valid-feedback">
+                nice Description
+               </div>
+               <div class="invalid-feedback">
+                Please enter description
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Upload image:</label>
+            <input type="file" placeholder="image url" name="Listings[image]" class="form-control" required/>
+            <div class="valid-feedback">
+                url found
+               </div>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Price</label>
+                <input  placeholder="enter number" name="newprice" class="form-control" required/>
+                <div class="valid-feedback">
+                    good price
+                   </div>
+                   <div class="invalid-feedback">
+                    please enter the price 
+                  </div>
+            </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="title" class="form-label">Location:mumbai,india</label>
+                            <input type="text" placeholder="location" name="newlocation" class="form-control" required/>
+                            <div class="valid-feedback">
+                               location Found
+                               </div>
+                               <div class="invalid-feedback">
+                                please enter Location
+                              </div>
+                            </div>  
+                            <div class="col-md-8 mb-3">
+                            <label for="title" class="form-label" >Country:</label>
+                            <input type="text" placeholder="country" name="newcountry" class="form-control" required/>
+                            <div class="valid-feedback">
+                                 Country
+                               </div>
+                               <div class="invalid-feedback">
+                                enter Country
+                              </div>
+                            </div>
+                    </div>
+            <button type="submit" class="btn add">Create</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
