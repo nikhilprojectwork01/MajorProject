@@ -32,10 +32,10 @@
       <div class="row col-8">
         <%if(curruser && curruser._id.equals(data.owner._id)){%>
           <div class="col-2">
-            <a href="http://localhost:8080/Listings/<%=data.id%>/update"><button class="btn edit">Edit</button></a>
+            <a href="/Listings/<%=data.id%>/update"><button class="btn edit">Edit</button></a>
           </div>
           <div class="col-2">
-            <form method="post" action="http://localhost:8080/Listings/<%=data.id%>/delete?_method=DELETE">
+            <form method="post" action="/Listings/<%=data.id%>/delete?_method=DELETE">
               <button type="submit" class="btn del">delete</button>
             </form>
           </div>
@@ -45,7 +45,7 @@
       <%if(curruser){%>
         <div class="row   col-6 mt-4">
           <h3>Leave a Review</h3>
-          <form action="http://localhost:8080/Listings/<%=data.id%>/review" method="post" novalidate
+          <form action="/Listings/<%=data.id%>/review" method="post" novalidate
             class="needs-validation">
             <div>
               <fieldset class="starability-growRotate">
@@ -101,7 +101,7 @@
                     </p>
                     </p>
                   </div>
-                  <form action="http://localhost:8080/Listings/<%=data.id%>/review/<%=suggestion.id%>?_method=DELETE"
+                  <form action="/Listings/<%=data.id%>/review/<%=suggestion.id%>?_method=DELETE"
                     class="mb-3" method="post">
                     <button class="btn del btn-sm">Delete</button>
                   </form>

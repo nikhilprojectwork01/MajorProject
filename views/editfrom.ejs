@@ -2,7 +2,7 @@
 <body>
     <div class="row offset-2 col-8">
         <h3>Edit your Listings</h3>
-        <form method="post" action="http://localhost:8080/Listings/<%=data.id%>/add?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <form method="post" action="/Listings/<%=data.id%>/add?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
             <input type="text" value="<%=data.title%>" name="newtitle" class="form-control" required>
