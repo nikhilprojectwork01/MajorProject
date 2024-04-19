@@ -78,9 +78,6 @@ async function main() {
 app.listen(port, (req, res) => {
     console.log("Connection Establish with the server");
 });
-app.get("/", (req, res) => {
-    res.send("<h1>login to root path</h1>");
-})
 app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
